@@ -14,12 +14,25 @@
   .main_content .hammer {
     animation: hammer-animation 0.7s linear;
     animation-fill-mode: forwards;
-    animation-delay: 2s;
+    animation-delay: 4.5s;
   }
   .main_content .trigger {
     animation: trigger-animation 1s linear;
     animation-fill-mode: forwards;
-    animation-delay: 2s;
+    animation-delay: 4.5s;
+  }
+  .main_content .clip {
+    animation: clip-animation 2s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 2.5s;
+  }
+  .timeCounter {
+    animation: timeCounter 3s ease;
+    animation-fill-mode: forwards;
+  }
+  .main_content {
+    animation: main-animation 3s ease;
+    animation-fill-mode: forwards;
   }
 }
 
@@ -47,7 +60,7 @@
   0% {
     transform: rotate(0deg);
   }
-  75% {
+  80% {
     transform: rotate(40deg);
   }
   100% {
@@ -70,6 +83,39 @@
   }
 }
 
+@keyframes clip-animation {
+  0% {
+    transform: translateY(-150vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes timeCounter {
+  0% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes main-animation {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .main_content {
   position: relative;
   display: flex;
@@ -79,18 +125,78 @@
 
 .main_content .gun {
   z-index: 1;
+  width: 700px;
 }
 
 .main_content .hammer {
   position: absolute;
   transform: rotate(-15deg);
-  right: 180px;
-  top: 40px;
+  right: 23%;
+  top: 8%;
   z-index: 0;
+  width: 100px;
 }
 
 .main_content .trigger {
   position: absolute;
-  top: 35%;
+  top: 34%;
   left: 50%;
+  width: 80px;
+}
+
+.main_content .clip {
+  position: absolute;
+  height: 150vh;
+  background-image: url(./clip.png);
+  width: 116px;
+  background-size: 100%;
+  background-repeat: repeat-y;
+}
+
+.main_content .clip-content {
+  position: absolute;
+  top: 8.5%;
+  right: 41%;
+  width: 116px;
+  height: 96px;
+  overflow: hidden;
+}
+
+.timeCounter {
+  position: absolute;
+  font-size: 300px;
+  font-weight: bold;
+}
+
+.resetButton {
+  position: fixed;
+  bottom: 160px;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: yellowgreen;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+  .main_content .gun {
+    width: 350px;
+  }
+  .main_content .hammer {
+    width: 50px;
+  }
+  .main_content .trigger {
+    width: 40px;
+  }
+  .main_content .clip {
+    width: 58px;
+  }
+  .main_content .clip-content {
+    width: 58px;
+    height: 48px;
+  }
+  .timeCounter {
+    font-size: 150px;
+  }
 }
